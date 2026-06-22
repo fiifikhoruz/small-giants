@@ -125,13 +125,23 @@ export default function ContentEngine() {
                 key={node.id}
                 onClick={() => setActive(i)}
                 aria-label={node.label}
-                className="absolute z-30 -translate-x-1/2 -translate-y-1/2"
+                aria-pressed={isActive}
+                className="absolute z-30 grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center md:block md:h-auto md:w-auto"
                 style={{ left: `${x}%`, top: `${y}%` }}
               >
+                {/* Mobile: compact dot (label shown in the hub + legend) */}
+                <span
+                  className={`h-3.5 w-3.5 rounded-full border transition-colors duration-300 md:hidden ${
+                    isActive
+                      ? "border-signal bg-signal"
+                      : "border-white/40 bg-ink-800"
+                  }`}
+                />
+                {/* Desktop: full pill */}
                 <motion.span
                   whileHover={{ scale: 1.12 }}
                   transition={{ duration: 0.3, ease: EASE }}
-                  className={`flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium backdrop-blur transition-colors duration-300 ${
+                  className={`hidden items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium backdrop-blur transition-colors duration-300 md:flex ${
                     isActive
                       ? "border-signal bg-signal text-ink"
                       : "border-white/15 bg-ink-800/80 text-mute hover:border-white/40 hover:text-paper"

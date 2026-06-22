@@ -1,6 +1,6 @@
 # Small Giants
 
-**The modern school for entrepreneurs.** A website concept built as a job application for the **Content & Growth Associate** role.
+**The modern school for entrepreneurs.** Built independently as part of an application for the **Content & Growth Associate** role at Small Giants — a contribution, not a pitch to reinvent the company.
 
 This is a full Next.js application, not a mockup. Every section is real: real copy, real components, real scroll-linked motion. The site argues its own case by being the thing it describes — a piece of founder-first content, produced AI-natively, shipped end to end.
 
@@ -22,7 +22,15 @@ npm run build && npm start
 
 Requirements: Node 18.17+ (tested on Node 22). No environment variables, no API keys, no database. Fonts load from Google Fonts at runtime; everything else is self-contained.
 
-> Note on verification: the import/export graph and JSX of all 22 source files were validated programmatically (0 errors). A full `next build` was not run in the authoring sandbox because package installation was network-limited there — run `npm run build` locally to confirm.
+> Note on verification: the import/export graph, JSX and structure of all source files were validated programmatically (0 errors, 0 imbalances, all client/server boundaries correct). A full `next build` was not run in the authoring sandbox because package installation was network-limited there — run `npm run build` locally to confirm TypeScript + lint pass.
+
+## Deploy to Vercel
+
+1. Push the `small-giants` folder to a Git repo.
+2. Import it at vercel.com — the framework is auto-detected (Next.js), no config needed.
+3. Set the production domain, then update `SITE_URL` in `app/layout.tsx`, `app/robots.ts` and `app/sitemap.ts` to match (currently `https://small-giants.vercel.app`).
+
+SEO is wired via the App Router: `app/layout.tsx` (title, description, canonical, Open Graph, Twitter card, `metadataBase`), `app/opengraph-image.png` + `app/twitter-image.png` (social cards), `app/icon.svg` + `app/apple-icon.png` (favicons), and `app/robots.ts` + `app/sitemap.ts`.
 
 ---
 
@@ -41,7 +49,7 @@ The site is designed as a **scroll, not a sitemap**. It's a single page that tel
 | 05 | **Build in Public** | Build trust | Vertical timeline with a spine that fills on scroll (Day 1 → Day 365) |
 | 06 | **The AI Layer** | Demonstrate AI-native thinking | Agent constellation with animated information flow |
 | 07 | **How This Website Was Built** | The differentiator | The page as a case study + AI-collaboration cards |
-| 08 | **If I Joined Tomorrow** | Close the deal | A real 30/60/90 day execution roadmap |
+| 08 | **If I Joined The Sprint** | Close the deal | 8-week execution plan: four pillars to ship 200+ pieces |
 | — | **Footer / Join** | Call to action | Direct line to start the conversation |
 
 ---
@@ -112,6 +120,21 @@ small-giants/
 
 ---
 
+## Responsiveness, accessibility & production hardening
+
+Optimised for 320 / 375 / 390 / 414 / 768 / 1024 / 1440px+ with no horizontal overflow, clipping or content collisions. Desktop interactions are untouched.
+
+- **Mobile nav** — hamburger opens a slide-in drawer with an overlay backdrop, close button, Escape-to-close, body scroll-lock and focus handling (focus moves into the drawer, returns to the trigger on close).
+- **Founder OS** — desktop keeps the sticky stacking cards; below `md` it becomes a touch-friendly horizontal snap carousel.
+- **Content Engine** — on mobile the flywheel nodes render as compact dots with 44px hit areas (labels via the hub + legend), so nothing crops or collides; full pills on desktop.
+- **AI Layer** — desktop constellation is unchanged; below `lg` it switches to a dedicated vertical agent flow (Research ↓ … ↓ Analytics) and the looping particle animations are switched off entirely.
+- **Reduced mobile motion** — hero parallax distance, glow blur radius and transform intensity are dialled back on small screens; `prefers-reduced-motion` collapses animation globally.
+- **Touch targets** — interactive controls meet the 44px minimum with comfortable spacing.
+- **Accessibility** — skip-to-content link, visible `:focus-visible` rings, semantic landmarks (`<nav aria-label>`, `<main id="main">`, `<ol>` for the flow), `aria-expanded`/`aria-pressed`/`aria-modal` states, and tightened text contrast (mute tones nudged to pass AA).
+- **Overflow guards** — `max-width:100%` on root, section-level `scroll-margin`/`scroll-padding` so anchored sections clear the fixed header.
+
+Responsive logic lives in `lib/useMediaQuery.ts` (`useIsMobile`, `useIsCompact`) — SSR-safe (returns desktop default on first paint, so mobile never flashes and there's no hydration mismatch).
+
 ## Performance notes
 
 - Server components by default; `"use client"` only where interaction demands it
@@ -121,4 +144,4 @@ small-giants/
 
 ---
 
-*A concept by a Content & Growth Associate candidate, 2026.*
+*Built independently as part of an application for the Content & Growth Associate role at Small Giants, 2026.*

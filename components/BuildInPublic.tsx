@@ -23,7 +23,7 @@ export default function BuildInPublic() {
   return (
     <section className="relative border-t border-white/10 bg-ink py-24 md:py-32">
       <div className="edge">
-        <SectionLabel index="05" label="Build in Public" />
+        <SectionLabel index="06" label="Build in Public" />
         <motion.h2
           variants={fadeUp}
           initial="hidden"

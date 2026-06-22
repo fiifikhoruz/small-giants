@@ -18,7 +18,7 @@ export default function HowItWasBuilt() {
       className="relative border-t border-white/10 bg-ink py-24 md:py-32"
     >
       <div className="edge">
-        <SectionLabel index="07" label="How This Website Was Built" />
+        <SectionLabel index="08" label="How This Website Was Built" />
         <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
           <motion.h2
             variants={fadeUp}

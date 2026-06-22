@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { nav } from "@/lib/content";
 import { fadeUp, viewportOnce } from "@/lib/motion";
+import Logo from "@/components/ui/Logo";
 
 export default function Footer() {
   return (
@@ -25,8 +26,9 @@ export default function Footer() {
             Never stop learning.
           </h2>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-mute">
-            Small Giants is a concept built to show what founder-first education
-            could feel like. If you’re building it for real, let’s talk.
+            Small Giants is building the place where founders, operators and
+            ambitious professionals go to learn, grow and build. I made this to
+            show I understand that mission — and to start the conversation.
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -50,9 +52,7 @@ export default function Footer() {
 
         <div className="mt-20 flex flex-col gap-8 border-t border-white/10 pt-10 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-2.5">
-            <span className="grid h-7 w-7 place-items-center rounded-[7px] bg-signal text-ink">
-              <span className="text-[15px] font-black leading-none">S</span>
-            </span>
+            <Logo className="h-8 w-8 text-paper" />
             <span className="text-sm font-semibold">Small Giants</span>
           </div>
           <nav className="flex flex-wrap gap-x-7 gap-y-2">
@@ -66,8 +66,9 @@ export default function Footer() {
               </a>
             ))}
           </nav>
-          <p className="text-xs text-mute-dim">
-            A concept by a Content &amp; Growth Associate candidate · 2026
+          <p className="max-w-sm text-xs leading-relaxed text-mute-dim md:text-right">
+            Built independently as part of an application for the Content &amp;
+            Growth Associate role at Small Giants.
           </p>
         </div>
       </div>

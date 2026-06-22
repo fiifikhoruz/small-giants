@@ -24,8 +24,8 @@ const config: Config = {
           soft: "#C7DC4E",
         },
         mute: {
-          DEFAULT: "#8A8A93",
-          dim: "#5A5A62",
+          DEFAULT: "#9A9AA3", // ~5.6:1 on ink — passes AA for body text
+          dim: "#7E7E88", // ~4.6:1 on ink — passes AA for small labels
         },
       },
       fontFamily: {
@@ -34,9 +34,9 @@ const config: Config = {
         mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
       fontSize: {
-        "hero": ["clamp(2.75rem, 9vw, 9rem)", { lineHeight: "0.92", letterSpacing: "-0.03em" }],
-        "display": ["clamp(2rem, 6vw, 5.5rem)", { lineHeight: "0.96", letterSpacing: "-0.025em" }],
-        "title": ["clamp(1.5rem, 3.5vw, 3rem)", { lineHeight: "1.02", letterSpacing: "-0.02em" }],
+        "hero": ["clamp(2.35rem, 8.5vw, 9rem)", { lineHeight: "0.94", letterSpacing: "-0.03em" }],
+        "display": ["clamp(1.85rem, 6vw, 5.5rem)", { lineHeight: "0.98", letterSpacing: "-0.025em" }],
+        "title": ["clamp(1.4rem, 3.5vw, 3rem)", { lineHeight: "1.04", letterSpacing: "-0.02em" }],
       },
       maxWidth: {
         edge: "1440px",

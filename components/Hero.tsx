@@ -4,21 +4,24 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { hero, stats } from "@/lib/content";
 import { EASE } from "@/lib/motion";
+import { useIsMobile } from "@/lib/useMediaQuery";
 import AnimatedStat from "@/components/ui/AnimatedStat";
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
+  const mobile = useIsMobile();
   // Scroll-linked: as the hero leaves, headline rises + fades, settling the
-  // narrative into the sections below.
+  // narrative into the sections below. Parallax distance is dialled back on
+  // mobile for smoother scrolling.
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
 
-  const yHead = useTransform(scrollYProgress, [0, 1], ["0%", "-32%"]);
+  const yHead = useTransform(scrollYProgress, [0, 1], ["0%", mobile ? "-12%" : "-32%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.94]);
-  const ghostY = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, mobile ? 0.98 : 0.94]);
+  const ghostY = useTransform(scrollYProgress, [0, 1], ["0%", mobile ? "10%" : "22%"]);
 
   const lineWords = hero.lines.map((l) => l.split(" "));
   let wordCounter = 0;
@@ -38,10 +41,10 @@ export default function Hero() {
         SG
       </motion.span>
 
-      {/* Radial glow, single accent, very restrained */}
+      {/* Radial glow, single accent, very restrained. Lighter blur on mobile. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/3 h-[60vh] w-[60vh] -translate-x-1/2 rounded-full opacity-[0.07] blur-[120px]"
+        className="pointer-events-none absolute left-1/2 top-1/3 h-[44vh] w-[44vh] -translate-x-1/2 rounded-full opacity-[0.07] blur-[70px] md:h-[60vh] md:w-[60vh] md:blur-[120px]"
         style={{ background: "#E8FF59" }}
       />
 

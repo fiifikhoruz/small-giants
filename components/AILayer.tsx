@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { agents } from "@/lib/content";
 import { EASE, fadeUp, viewportOnce } from "@/lib/motion";
+import { useIsCompact } from "@/lib/useMediaQuery";
 import SectionLabel from "@/components/ui/SectionLabel";
 
 /**
@@ -25,6 +26,9 @@ const positions = [
 
 export default function AILayer() {
   const [active, setActive] = useState<number | null>(null);
+  // Below lg we swap the constellation for a vertical flow and switch off the
+  // looping particle animations entirely.
+  const compact = useIsCompact();
 
   return (
     <section
@@ -33,12 +37,12 @@ export default function AILayer() {
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[55vh] w-[55vh] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.06] blur-[120px]"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[40vh] w-[40vh] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.06] blur-[70px] lg:h-[55vh] lg:w-[55vh] lg:blur-[120px]"
         style={{ background: "#E8FF59" }}
       />
 
       <div className="edge relative">
-        <SectionLabel index="06" label="The AI Layer" />
+        <SectionLabel index="07" label="The AI Layer" />
         <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
           <motion.h2
             variants={fadeUp}
@@ -64,8 +68,8 @@ export default function AILayer() {
       </div>
 
       <div className="edge relative mt-16 grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-        {/* diagram */}
-        <div className="relative mx-auto aspect-square w-full max-w-[540px]">
+        {/* diagram — desktop / large screens only */}
+        <div className="relative mx-auto hidden aspect-square w-full max-w-[540px] lg:block">
           <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full">
             {positions.map((p, i) => {
               const isOn = active === null || active === i;
@@ -80,8 +84,8 @@ export default function AILayer() {
                     strokeWidth={active === i ? 0.6 : 0.35}
                     style={{ transition: "stroke 0.3s ease" }}
                   />
-                  {/* flowing particles */}
-                  {isOn && (
+                  {/* flowing particles — desktop only */}
+                  {isOn && !compact && (
                     <>
                       <FlowDot from={HUB} to={p} delay={i * 0.5} />
                       <FlowDot from={p} to={HUB} delay={i * 0.5 + 1.4} reverse />
@@ -148,8 +152,8 @@ export default function AILayer() {
           })}
         </div>
 
-        {/* detail / list */}
-        <div className="flex flex-col gap-3">
+        {/* detail / list — desktop (paired with the constellation) */}
+        <div className="hidden flex-col gap-3 lg:flex">
           {agents.map((agent, i) => {
             const isActive = active === i;
             return (
@@ -199,6 +203,44 @@ export default function AILayer() {
             Hover or tap an agent to trace its role in the loop.
           </p>
         </div>
+
+        {/* Dedicated mobile / tablet vertical flow */}
+        <ol className="flex flex-col lg:hidden">
+          {agents.map((agent, i) => (
+            <li key={agent.id} className="flex flex-col">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.6 }}
+                transition={{ duration: 0.5, ease: EASE }}
+                className="rounded-xl border border-white/10 bg-ink-800 p-5"
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-signal/40 font-mono text-[11px] text-signal">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="font-semibold">{agent.name}</span>
+                  </div>
+                  <span className="shrink-0 text-right text-[11px] text-mute">
+                    {agent.role}
+                  </span>
+                </div>
+                <p className="mt-3 text-[14px] leading-relaxed text-mute">
+                  {agent.detail}
+                </p>
+              </motion.div>
+              {i < agents.length - 1 && (
+                <span
+                  aria-hidden
+                  className="my-2 self-center text-mute-dim"
+                >
+                  ↓
+                </span>
+              )}
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );

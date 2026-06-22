@@ -41,12 +41,51 @@ export default function FounderOS() {
         </motion.p>
       </div>
 
+      {/* Desktop: sticky stacking cards */}
       <div className="edge mt-16">
-        <div className="relative flex flex-col gap-6">
+        <div className="relative hidden flex-col gap-6 md:flex">
           {founderOS.map((card, i) => (
             <Card key={card.n} card={card} i={i} total={founderOS.length} />
           ))}
         </div>
+      </div>
+
+      {/* Mobile: horizontal, swipeable snap carousel */}
+      <div className="mt-12 md:hidden">
+        <div className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 [scroll-padding-left:1.5rem]">
+          {founderOS.map((card) => (
+            <article
+              key={card.n}
+              className="flex w-[80vw] max-w-[20rem] shrink-0 snap-start flex-col rounded-2xl border border-white/10 bg-ink-800 p-6"
+            >
+              <div className="flex items-center gap-3">
+                <span className="font-mono text-sm text-signal">{card.n}</span>
+                <span className="font-mono text-xs text-mute-dim">
+                  / {String(founderOS.length).padStart(2, "0")}
+                </span>
+              </div>
+              <h3 className="mt-4 text-2xl font-bold tracking-tight">
+                {card.title}
+              </h3>
+              <p className="mt-2 text-[15px] leading-relaxed text-mute">
+                {card.blurb}
+              </p>
+              <div className="mt-5 border-l border-white/10 pl-4">
+                <p className="text-[10px] uppercase tracking-[0.25em] text-mute-dim">
+                  Founder insight
+                </p>
+                <p className="mt-2 font-serif text-base italic leading-snug text-paper">
+                  “{card.insight}”
+                </p>
+              </div>
+            </article>
+          ))}
+          {/* trailing spacer so the last card can center */}
+          <span aria-hidden className="w-2 shrink-0" />
+        </div>
+        <p className="edge mt-3 font-mono text-[11px] uppercase tracking-[0.2em] text-mute-dim">
+          Swipe →
+        </p>
       </div>
     </section>
   );

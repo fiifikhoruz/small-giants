@@ -1,22 +1,48 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
+const SITE_URL = "https://small-giants.vercel.app";
+const TITLE = "Small Giants | Built as an Application";
+const DESCRIPTION =
+  "An independent concept exploring the future of entrepreneurial education, media and founder learning.";
+
 export const metadata: Metadata = {
-  title: "Small Giants — The Modern School for Entrepreneurs",
-  description:
-    "Content, community and practical business education for founders who never stop learning. Build better. Think bigger. Keep learning.",
+  metadataBase: new URL(SITE_URL),
+  title: TITLE,
+  description: DESCRIPTION,
+  applicationName: "Small Giants",
   keywords: [
     "entrepreneurship",
     "founder education",
     "media company",
     "startup learning",
+    "entrepreneurial education",
     "Small Giants",
   ],
+  authors: [{ name: "Built as an application for Small Giants" }],
+  alternates: {
+    canonical: SITE_URL,
+  },
   openGraph: {
-    title: "Small Giants — The Modern School for Entrepreneurs",
-    description:
-      "The school we wish existed. Lifelong learning for founders.",
+    title: TITLE,
+    description: DESCRIPTION,
+    url: SITE_URL,
+    siteName: "Small Giants",
     type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  icons: {
+    icon: "/icon.svg",
+    apple: "/apple-icon.png",
   },
 };
 
@@ -33,7 +59,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
+        {children}
+      </body>
     </html>
   );
 }

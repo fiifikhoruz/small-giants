@@ -179,11 +179,36 @@ export const flywheel = [
 ];
 
 /* SECTION 4 — The Entrepreneur Library */
-export const library: {
+export type LibraryCaseStudy = {
+  label: string;
+  title: string;
+  frame: string;
+  hook: string;
+  readingTime: string;
+  sections: { heading: string; body: string }[];
+  signals: string[];
+  lessons: string[];
+};
+
+export type LibraryFramework = {
+  label: string;
+  title: string;
+  intro: string;
+  principles: { heading: string; body: string }[];
+  takeaways: string[];
+};
+
+export type LibraryCategory = {
   category: string;
   tagline: string;
   items: { type: string; title: string; meta: string }[];
-}[] = [
+  featured?: {
+    caseStudy: LibraryCaseStudy;
+    framework: LibraryFramework;
+  };
+};
+
+export const library: LibraryCategory[] = [
   {
     category: "Growth",
     tagline: "Channels that compound, not campaigns that spike.",
@@ -223,6 +248,79 @@ export const library: {
       { type: "Case study", title: "Three pivots that worked (and why)", meta: "Teardown" },
       { type: "Resource", title: "The fundraising data room template", meta: "Template" },
     ],
+    featured: {
+      caseStudy: {
+        label: "Featured founder case study",
+        title: "Say Something",
+        frame: "Building a category instead of a product.",
+        hook: "Most startups launch a product and hope a market shows up. Say Something did the opposite: it named a behaviour people already wanted permission to perform, then built the smallest possible thing to make it easy. The product was almost incidental. The category did the selling.",
+        readingTime: "9 min read · Founder teardown",
+        sections: [
+          {
+            heading: "Identifying the opportunity",
+            body: "The gap wasn't a missing feature. It was a missing permission. People constantly had something to say — a thank you, an apology, an unspoken truth, a piece of encouragement — and almost no low-stakes way to say it. The opportunity lived in the everyday friction of human expression, not in a competitor's product roadmap. The founding insight was behavioural, not technical: watch what people already try to do in the margins, then remove the awkwardness that stops them.",
+          },
+          {
+            heading: "Building a category, not a feature",
+            body: "Instead of positioning against existing messaging apps, Say Something framed a new behaviour and gave it a name. A named behaviour is a category in disguise. When you compete on features you join a race that's already crowded; when you name a behaviour you become the default verb for it. The product became a wedge into a much larger idea — that saying the thing matters — and the bigger idea is what people repeated to each other.",
+          },
+          {
+            heading: "Product development",
+            body: "The team built the smallest thing that made the behaviour effortless, then iterated on friction rather than features. Every release answered one question: what's still stopping someone from saying the thing? That discipline kept the product narrow and the experience fast. Features that didn't serve the core act were cut, even good ones, because a category is defended by clarity, not by surface area.",
+          },
+          {
+            heading: "Community building",
+            body: "Early users weren't an audience, they were co-authors. The first hundred people shaped the tone, the etiquette and the unwritten rules of how you 'say something' here. The team invested in rituals over functionality — moments that made participation feel shared. Community scaled the behaviour faster than any feature could, because people don't adopt a category alone; they adopt it because the people around them already have.",
+          },
+          {
+            heading: "Distribution",
+            body: "Distribution was designed into the act itself. Saying something to someone implicates a second person, so every use was a quiet invitation. Growth came from the behaviour spreading person to person, not from campaigns renting attention. The most durable distribution channel turned out to be the conversation the product started — people explaining it to each other in their own words.",
+          },
+          {
+            heading: "Product-market fit signals",
+            body: "The signals were qualitative before they were quantitative. People used it unprompted, without nudges or reminders. They adopted the product's language as their own. They came back without being pulled back. And, most tellingly, they explained it to others better than the marketing did. When your users start doing your positioning for you, you've found the edge of product-market fit.",
+          },
+        ],
+        signals: [
+          "Unprompted, repeat use with no notifications driving it",
+          "Users adopting the product's language in everyday speech",
+          "People explaining the idea to others more clearly than the brand could",
+          "Demand for the behaviour in contexts the team never designed for",
+        ],
+        lessons: [
+          "Sell the behaviour, not the build. The product is the wedge; the category is the story.",
+          "Narrow beats broad. Clarity is how a young category defends itself.",
+          "Design distribution into the act, so using it is sharing it.",
+          "Treat your first users as co-authors of the category, not as a launch audience.",
+        ],
+      },
+      framework: {
+        label: "Featured framework",
+        title: "Building a Category Instead of a Product",
+        intro: "A Small Giants resource, drawn from the Say Something journey. A practical lens for founders who'd rather create demand than fight for it.",
+        principles: [
+          {
+            heading: "Products vs. categories",
+            body: "A product is a thing you sell. A category is a belief people adopt. Products compete on features and get compared on a spec sheet; categories compete on worldview and get repeated in conversation. Founders who only ship a product spend their lives explaining why theirs is better. Founders who frame a category get to define what 'better' even means. The work is naming the behaviour or belief your product unlocks, then making your product the most natural way to live it.",
+          },
+          {
+            heading: "Why communities scale better than campaigns",
+            body: "Campaigns rent attention; communities compound it. A campaign's value ends the moment you stop paying for it. A community keeps producing value — language, norms, referrals, proof — long after the launch. Communities also carry a category further than ads can, because people trust a behaviour their peers have already adopted more than a message they've been served. The cheapest, most durable growth is a group of people who feel ownership over the idea.",
+          },
+          {
+            heading: "Why conversation became the product",
+            body: "In the strongest categories, the interaction is the value. When the core act is inherently social, every use creates a second user and every conversation is a quiet act of distribution. Conversation is also a feedback loop: it tells you which framing lands, which words spread, and where the behaviour wants to go next. Build the loop where talking about it and using it are the same motion, and the category teaches you how to grow it.",
+          },
+        ],
+        takeaways: [
+          "Name the behaviour before you build the feature.",
+          "Pick the smallest product that makes the behaviour effortless.",
+          "Invest in rituals and norms, not just functionality.",
+          "Make every use an invitation, so distribution is built in.",
+          "Watch for language adoption — it's the earliest signal a category is forming.",
+        ],
+      },
+    },
   },
   {
     category: "Product",
@@ -376,45 +474,86 @@ export const aiCollab = [
   },
 ];
 
-/* FINAL — If I Joined Small Giants Tomorrow */
-export const roadmap = [
-  {
-    window: "30 Days",
-    theme: "Learn the engine, find the leaks",
-    items: [
-      "Audit every content surface and map what already compounds vs. what leaks attention.",
-      "Sit in on the full workflow, from research to publish, and document where time actually goes.",
-      "Ship a weekly teardown in Small Giants' voice to prove I can produce, not just plan.",
-      "Stand up a lightweight dashboard so we're arguing with data, not opinions.",
-    ],
-  },
-  {
-    window: "60 Days",
-    theme: "Build the systems",
-    items: [
-      "Turn the best-performing formats into repeatable templates the whole team can run.",
-      "Wire an AI repurposing workflow so one piece reliably becomes eight, edited not auto-posted.",
-      "Launch a structured experiment cadence: one growth bet shipped and measured every week.",
-      "Tighten the path from reader to community member with a clear, owned funnel.",
-    ],
-  },
-  {
-    window: "90 Days",
-    theme: "Compound it",
-    items: [
-      "Hand the team a knowledge base that makes every new piece cheaper and better than the last.",
-      "Prove one acquisition channel that compounds, with the unit economics to defend scaling it.",
-      "Ship a small piece of education — a mini-course or framework library — from existing content.",
-      "Leave behind systems that run without me, so my next 90 days start further up the curve.",
-    ],
-  },
-];
+/* FINAL — If I Joined The Sprint Tomorrow (8-week execution) */
+export const sprint = {
+  eyebrow: "If I joined the sprint",
+  title: "If I joined the sprint tomorrow",
+  intro:
+    "Small Giants already has the mission. The challenge now is turning it into a repeatable content engine. Over the next eight weeks — 200+ pieces across TikTok, Instagram and LinkedIn — I would focus on systems, leverage and compounding outcomes, not heroics.",
+  pillars: [
+    {
+      n: "01",
+      title: "Content pipeline",
+      flow: "Idea → Research → Script → Edit → Publish → Analyse",
+      body: "One workflow, end to end. Reduce friction at every handoff, raise output, and document the process so it runs without any single person — including me.",
+    },
+    {
+      n: "02",
+      title: "AI workflows",
+      flow: "Research · Ideation · Scripting · Repurposing · Analysis",
+      body: "Use AI to accelerate the heavy lifting across the pipeline. A force multiplier on the busywork — never a replacement for the editorial judgement that decides what is actually worth saying.",
+    },
+    {
+      n: "03",
+      title: "Content systems",
+      flow: "Create once · Reuse intelligently",
+      body: "Repeatable frameworks for the formats that recur: founder stories, business insights, AI explainers, startup lessons, trend analysis. Build the template once, then reuse it with intent.",
+    },
+    {
+      n: "04",
+      title: "Growth loops",
+      flow: "Audience → Newsletter → Community",
+      body: "Find the formats that win, track engagement honestly, and double down on what works — tying content performance to the things that compound: audience, newsletter and community growth.",
+    },
+  ],
+  closer:
+    "The objective isn't simply publishing 200 pieces. It's building a system capable of producing the next 2,000.",
+};
 
 export const nav = [
   { label: "Vision", href: "#why" },
   { label: "Operating System", href: "#founder-os" },
   { label: "Engine", href: "#engine" },
   { label: "Library", href: "#library" },
+  { label: "The Founder", href: "#founder" },
   { label: "AI Layer", href: "#ai-layer" },
   { label: "The Build", href: "#built" },
 ];
+
+/* SECTION 5 — The Founder (lessons from the journey, contributor voice) */
+export const founderThesis = {
+  eyebrow: "The Founder",
+  title: "Lessons from the journey",
+  lead: "Before this application, I spent years learning the same things Small Giants teaches — the slow, expensive way.",
+  body: [
+    "I founded Sorted Chale and built it from the ground up in Ghana, growing it into a global experience brand for the African diaspora. The plan was to sell experiences. What it actually taught me was how people change.",
+    "The real product was never the events. It was the belonging they created — people came back for who they got to be when they were with us. Culture, identity and community turned out to be the whole business.",
+    "That is the same thread Small Giants is already pulling on: that learning, belonging and building are inseparable, and that founders need somewhere to do all three long after formal education ends.",
+    "So I am not bringing a different vision. I am bringing the lived version of the one Small Giants already has — which is exactly why I wanted to contribute before being asked.",
+  ],
+  pillars: [
+    {
+      name: "Belonging",
+      tag: "What I learned first",
+      body: "People learn fastest where they feel they belong. Sorted Chale ran on it. It is the same force that turns an audience into a community — and a community into a media company that compounds.",
+    },
+    {
+      name: "Learning",
+      tag: "What kept mattering",
+      body: "The questions only got harder after school ended, and the support quietly disappeared. Treating learning as a lifelong craft, not a credential, is the gap Small Giants exists to close.",
+    },
+    {
+      name: "Building",
+      tag: "What it is all for",
+      body: "Belonging and learning only matter if they help you build. Everything I have done points back to the work — shipping, selling, growing — and that is the bias I would bring to the content too.",
+    },
+  ],
+  journey: [
+    { node: "Sorted Chale", note: "Built from the ground up in Ghana — an experience brand for the diaspora." },
+    { node: "Community", note: "The real product was the people who kept coming back, not the events." },
+    { node: "Belonging", note: "What they came back for: feeling part of something that understood them." },
+    { node: "Learning", note: "I watched founders teach themselves in the dark, alone." },
+    { node: "Entrepreneurship", note: "The throughline — building things that change how people live and feel." },
+    { node: "Small Giants", note: "The company already building exactly this. Which is why I wanted in." },
+  ],
+};
