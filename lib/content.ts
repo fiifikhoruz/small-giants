@@ -185,6 +185,8 @@ export type LibraryCaseStudy = {
   frame: string;
   hook: string;
   readingTime: string;
+  image?: string;
+  imageAlt?: string;
   sections: { heading: string; body: string }[];
   signals: string[];
   lessons: string[];
@@ -252,72 +254,75 @@ export const library: LibraryCategory[] = [
       caseStudy: {
         label: "Featured founder case study",
         title: "Say Something",
-        frame: "Building a category instead of a product.",
-        hook: "Most startups launch a product and hope a market shows up. Say Something did the opposite: it named a behaviour people already wanted permission to perform, then built the smallest possible thing to make it easy. The product was almost incidental. The category did the selling.",
-        readingTime: "9 min read · Founder teardown",
+        frame: "Building a category, not just a product.",
+        hook: "The real one. Say Something is the first locally made Ghanaian conversation card game, built by AB Card Games. I led it as co-founder and product lead, end to end. Here is the honest teardown: what we got right, what we changed, and what the market actually taught us.",
+        readingTime: "8 min read · Founder teardown · AB Card Games",
+        image: "/say-something-cards.jpg",
+        imageAlt:
+          "The four Say Something editions by AB Card Games, Ghana, Global, Spicy and Christian, held up against bold colour backgrounds",
         sections: [
           {
-            heading: "Identifying the opportunity",
-            body: "The gap wasn't a missing feature. It was a missing permission. People constantly had something to say (a thank you, an apology, an unspoken truth, a piece of encouragement) and almost no low-stakes way to say it. The opportunity lived in the everyday friction of human expression, not in a competitor's product roadmap. The founding insight was behavioural, not technical: watch what people already try to do in the margins, then remove the awkwardness that stops them.",
+            heading: "The opportunity",
+            body: "Social card games out of the US and Europe travelled the world, but none of them felt West African. The references missed. The language felt borrowed. The humour was someone else's. There was no locally made conversation game in Ghana at all. That gap was the whole opportunity: a game built for how people here actually sit together, talk, and play, at parties, dates, and church hangouts.",
           },
           {
             heading: "Building a category, not a feature",
-            body: "Instead of positioning against existing messaging apps, Say Something framed a new behaviour and gave it a name. A named behaviour is a category in disguise. When you compete on features you join a race that's already crowded; when you name a behaviour you become the default verb for it. The product became a wedge into a much larger idea, that saying the thing matters, and the bigger idea is what people repeated to each other.",
+            body: "We did not set out to make one clever card game. We built a system: a modular game with themed editions that share a single mechanic (draw a card, respond, let the group react) and change only the context. Ghana, Global, Spicy, Christian, and a Complete pack. The behaviour we were really naming was Ghanaians connecting through their own references, and owning that mattered more than any single feature.",
           },
           {
-            heading: "Product development",
-            body: "The team built the smallest thing that made the behaviour effortless, then iterated on friction rather than features. Every release answered one question: what's still stopping someone from saying the thing? That discipline kept the product narrow and the experience fast. Features that didn't serve the core act were cut, even good ones, because a category is defended by clarity, not by surface area.",
+            heading: "What I owned",
+            body: "All of it. The product concept and strategy, the core game mechanic, hundreds of prompts written and curated across editions, the branding and packaging, the pricing tiers, and the go-to-market through event activations and direct sales. Product decisions and content decisions, not one or the other.",
           },
           {
-            heading: "Community building",
-            body: "Early users weren't an audience, they were co-authors. The first hundred people shaped the tone, the etiquette and the unwritten rules of how you 'say something' here. The team invested in rituals over functionality: moments that made participation feel shared. Community scaled the behaviour faster than any feature could, because people don't adopt a category alone; they adopt it because the people around them already have.",
+            heading: "Pricing and editions",
+            body: "Five editions, priced by card count and what local buyers will actually pay: Ghana at GHS 250, Global and Spicy at GHS 150 each, Christian at GHS 200, and the 200-card Complete pack at GHS 450. We launched four at once on purpose, to learn which segments had real pull instead of guessing. Three months in, faith-based demand was obvious, so we shipped the Christian edition. It landed a 15-deck bulk order almost immediately.",
           },
           {
-            heading: "Distribution",
-            body: "Distribution was designed into the act itself. Saying something to someone implicates a second person, so every use was a quiet invitation. Growth came from the behaviour spreading person to person, not from campaigns renting attention. The most durable distribution channel turned out to be the conversation the product started: people explaining it to each other in their own words.",
+            heading: "How it actually grows",
+            body: "The best-converting moments were never paid ads. They were social events where people played it once and got it instantly. Sales peaked on the 13th of February, around a Valentine's activation. A real share of orders are gifts: people buy it for other people, which is word of mouth you can watch happen at the till.",
           },
           {
-            heading: "Product-market fit signals",
-            body: "The signals were qualitative before they were quantitative. People used it unprompted, without nudges or reminders. They adopted the product's language as their own. They came back without being pulled back. And, most tellingly, they explained it to others better than the marketing did. When your users start doing your positioning for you, you've found the edge of product-market fit.",
+            heading: "The honest constraints",
+            body: "Awareness is the hard part. Ghana has no real board-game retail, so discovery lives in events, social media, and word of mouth, and delivery across Accra alone needs creative workarounds. Building the game was half the job. Getting it into hands, in a market with no retail rails, is the harder half. I underestimated that going in.",
           },
         ],
         signals: [
-          "Unprompted, repeat use with no notifications driving it",
-          "Users adopting the product's language in everyday speech",
-          "People explaining the idea to others more clearly than the brand could",
-          "Demand for the behaviour in contexts the team never designed for",
+          "A single bulk order of 15 Christian editions, GHS 1,800, validating niche demand",
+          "Sales peaking on the 13th of February, tied to a Valentine's event",
+          "Gift-driven, repeat purchases: people buying it for others",
+          "Ghana's first locally developed card game, covered by JoyOnline and GhanaWeb",
         ],
         lessons: [
-          "Sell the behaviour, not the build. The product is the wedge; the category is the story.",
-          "Narrow beats broad. Clarity is how a young category defends itself.",
-          "Design distribution into the act, so using it is sharing it.",
-          "Treat your first users as co-authors of the category, not as a launch audience.",
+          "Cultural relevance pulls harder than clever features. Prompts need to feel familiar, not smart.",
+          "Test your assumptions, do not trust them. A Twi-written card fell flat, so we went English-first with Ghanaian references baked into the tone.",
+          "Start broad, then commit to signal. Four editions showed us where the pull was; the fifth followed the data.",
+          "Protect unit economics early. We traded premium packaging for simpler production plus a QR code, keeping the feel without the cost.",
         ],
       },
       framework: {
         label: "Featured framework",
         title: "Building a Category Instead of a Product",
-        intro: "A Small Giants resource, drawn from the Say Something journey. A practical lens for founders who'd rather create demand than fight for it.",
+        intro: "A Small Giants resource, drawn from building Say Something at AB Card Games. A lens for founders who would rather create demand than fight for it.",
         principles: [
           {
             heading: "Products vs. categories",
-            body: "A product is a thing you sell. A category is a belief people adopt. Products compete on features and get compared on a spec sheet; categories compete on worldview and get repeated in conversation. Founders who only ship a product spend their lives explaining why theirs is better. Founders who frame a category get to define what 'better' even means. The work is naming the behaviour or belief your product unlocks, then making your product the most natural way to live it.",
+            body: "A product is a thing you sell. A category is a behaviour people adopt. Say Something is not really 'a card game.' It is Ghanaians connecting through their own humour, and the game is the simplest way to do it. Compete on features and you join a crowded shelf. Name and own a behaviour and you become the default way to do it. There was no locally made conversation game in Ghana, so we did not build a better one. We built the first, and got to define what it should feel like.",
           },
           {
-            heading: "Why communities scale better than campaigns",
-            body: "Campaigns rent attention; communities compound it. A campaign's value ends the moment you stop paying for it. A community keeps producing value (language, norms, referrals, proof) long after the launch. Communities also carry a category further than ads can, because people trust a behaviour their peers have already adopted more than a message they've been served. The cheapest, most durable growth is a group of people who feel ownership over the idea.",
+            heading: "Why communities and events beat campaigns",
+            body: "The cheapest, most durable growth was never an ad. It was a room of people playing the game once, understanding it instantly, then buying it for friends. In a market with no board-game retail, the product spread through shared experiences: parties, dates, church hangouts, a Valentine's activation. People trust a behaviour their friends already do far more than a message they were served.",
           },
           {
-            heading: "Why conversation became the product",
-            body: "In the strongest categories, the interaction is the value. When the core act is inherently social, every use creates a second user and every conversation is a quiet act of distribution. Conversation is also a feedback loop: it tells you which framing lands, which words spread, and where the behaviour wants to go next. Build the loop where talking about it and using it are the same motion, and the category teaches you how to grow it.",
+            heading: "Why the interaction is the product",
+            body: "Say Something only works when people talk, so every play creates the next player and every session is a small act of distribution. That is the strongest position a product can hold: the thing people do with it is also how it grows. Build for the interaction itself, and the product starts marketing itself.",
           },
         ],
         takeaways: [
-          "Name the behaviour before you build the feature.",
-          "Pick the smallest product that makes the behaviour effortless.",
-          "Invest in rituals and norms, not just functionality.",
-          "Make every use an invitation, so distribution is built in.",
-          "Watch for language adoption: it's the earliest signal a category is forming.",
+          "Name the behaviour before you polish the feature.",
+          "Build the product as a system: one mechanic, many editions, so it scales without losing focus.",
+          "Put it where people already gather, and let them feel it before they buy.",
+          "Test cultural assumptions in public, then follow the data, not your taste.",
+          "Watch for gifting and word of mouth. They are the earliest sign a category is forming.",
         ],
       },
     },

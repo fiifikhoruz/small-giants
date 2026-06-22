@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   library,
@@ -169,6 +170,19 @@ function CaseStudyCard({ data }: { data: LibraryCaseStudy }) {
       <p className="relative mt-5 max-w-xl text-[15px] leading-relaxed text-mute">
         {data.hook}
       </p>
+
+      {data.image && (
+        <div className="relative mt-6 overflow-hidden rounded-2xl border border-white/10">
+          <Image
+            src={data.image}
+            alt={data.imageAlt ?? data.title}
+            width={1400}
+            height={1400}
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="h-auto w-full"
+          />
+        </div>
+      )}
 
       <AnimatePresence initial={false}>
         {open && (
