@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
-const SITE_URL = "https://small-giants.vercel.app";
+const SITE_URL = "https://small-giants-mu.vercel.app";
 const TITLE = "Small Giants | Built as an Application";
 const DESCRIPTION =
   "An independent concept exploring the future of entrepreneurial education, media and founder learning.";
