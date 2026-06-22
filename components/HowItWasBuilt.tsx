@@ -106,7 +106,7 @@ export default function HowItWasBuilt() {
           className="mx-auto mt-12 max-w-2xl text-center font-serif text-xl italic leading-relaxed text-paper/80 md:text-2xl"
         >
           The point isn’t that AI did the work. It’s that AI handled the
-          busywork, so the judgement, taste and editorial calls stayed human —
+          busywork, so the judgement, taste and editorial calls stayed human,
           and got more attention, not less.
         </motion.p>
       </div>

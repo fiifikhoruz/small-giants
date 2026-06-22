@@ -41,7 +41,7 @@ export default function WhyIBuiltThis() {
             </p>
             <p>
               Built using AI-assisted workflows, product thinking and
-              founder-first content strategy — because that&apos;s exactly what
+              founder-first content strategy, because that&apos;s exactly what
               this role requires.
             </p>
           </motion.div>

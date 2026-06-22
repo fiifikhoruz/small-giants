@@ -28,7 +28,7 @@ export default function Footer() {
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-mute">
             Small Giants is building the place where founders, operators and
             ambitious professionals go to learn, grow and build. I made this to
-            show I understand that mission — and to start the conversation.
+            show I understand that mission, and to start the conversation.
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">

@@ -150,7 +150,7 @@ export const flywheel = [
     id: "content",
     label: "Content",
     detail:
-      "Insights become essays, playbooks, videos and frameworks — formats matched to how founders really learn.",
+      "Insights become essays, playbooks, videos and frameworks, each matched to how founders really learn.",
   },
   {
     id: "distribution",
@@ -258,11 +258,11 @@ export const library: LibraryCategory[] = [
         sections: [
           {
             heading: "Identifying the opportunity",
-            body: "The gap wasn't a missing feature. It was a missing permission. People constantly had something to say — a thank you, an apology, an unspoken truth, a piece of encouragement — and almost no low-stakes way to say it. The opportunity lived in the everyday friction of human expression, not in a competitor's product roadmap. The founding insight was behavioural, not technical: watch what people already try to do in the margins, then remove the awkwardness that stops them.",
+            body: "The gap wasn't a missing feature. It was a missing permission. People constantly had something to say (a thank you, an apology, an unspoken truth, a piece of encouragement) and almost no low-stakes way to say it. The opportunity lived in the everyday friction of human expression, not in a competitor's product roadmap. The founding insight was behavioural, not technical: watch what people already try to do in the margins, then remove the awkwardness that stops them.",
           },
           {
             heading: "Building a category, not a feature",
-            body: "Instead of positioning against existing messaging apps, Say Something framed a new behaviour and gave it a name. A named behaviour is a category in disguise. When you compete on features you join a race that's already crowded; when you name a behaviour you become the default verb for it. The product became a wedge into a much larger idea — that saying the thing matters — and the bigger idea is what people repeated to each other.",
+            body: "Instead of positioning against existing messaging apps, Say Something framed a new behaviour and gave it a name. A named behaviour is a category in disguise. When you compete on features you join a race that's already crowded; when you name a behaviour you become the default verb for it. The product became a wedge into a much larger idea, that saying the thing matters, and the bigger idea is what people repeated to each other.",
           },
           {
             heading: "Product development",
@@ -270,11 +270,11 @@ export const library: LibraryCategory[] = [
           },
           {
             heading: "Community building",
-            body: "Early users weren't an audience, they were co-authors. The first hundred people shaped the tone, the etiquette and the unwritten rules of how you 'say something' here. The team invested in rituals over functionality — moments that made participation feel shared. Community scaled the behaviour faster than any feature could, because people don't adopt a category alone; they adopt it because the people around them already have.",
+            body: "Early users weren't an audience, they were co-authors. The first hundred people shaped the tone, the etiquette and the unwritten rules of how you 'say something' here. The team invested in rituals over functionality: moments that made participation feel shared. Community scaled the behaviour faster than any feature could, because people don't adopt a category alone; they adopt it because the people around them already have.",
           },
           {
             heading: "Distribution",
-            body: "Distribution was designed into the act itself. Saying something to someone implicates a second person, so every use was a quiet invitation. Growth came from the behaviour spreading person to person, not from campaigns renting attention. The most durable distribution channel turned out to be the conversation the product started — people explaining it to each other in their own words.",
+            body: "Distribution was designed into the act itself. Saying something to someone implicates a second person, so every use was a quiet invitation. Growth came from the behaviour spreading person to person, not from campaigns renting attention. The most durable distribution channel turned out to be the conversation the product started: people explaining it to each other in their own words.",
           },
           {
             heading: "Product-market fit signals",
@@ -305,7 +305,7 @@ export const library: LibraryCategory[] = [
           },
           {
             heading: "Why communities scale better than campaigns",
-            body: "Campaigns rent attention; communities compound it. A campaign's value ends the moment you stop paying for it. A community keeps producing value — language, norms, referrals, proof — long after the launch. Communities also carry a category further than ads can, because people trust a behaviour their peers have already adopted more than a message they've been served. The cheapest, most durable growth is a group of people who feel ownership over the idea.",
+            body: "Campaigns rent attention; communities compound it. A campaign's value ends the moment you stop paying for it. A community keeps producing value (language, norms, referrals, proof) long after the launch. Communities also carry a category further than ads can, because people trust a behaviour their peers have already adopted more than a message they've been served. The cheapest, most durable growth is a group of people who feel ownership over the idea.",
           },
           {
             heading: "Why conversation became the product",
@@ -317,7 +317,7 @@ export const library: LibraryCategory[] = [
           "Pick the smallest product that makes the behaviour effortless.",
           "Invest in rituals and norms, not just functionality.",
           "Make every use an invitation, so distribution is built in.",
-          "Watch for language adoption — it's the earliest signal a category is forming.",
+          "Watch for language adoption: it's the earliest signal a category is forming.",
         ],
       },
     },
@@ -477,21 +477,21 @@ export const aiCollab = [
 /* FINAL — If I Joined The Sprint Tomorrow (8-week execution) */
 export const sprint = {
   eyebrow: "If I joined the sprint",
-  title: "If I joined the sprint tomorrow",
+  title: "200+ pieces in 8 weeks",
   intro:
-    "Small Giants already has the mission. The challenge now is turning it into a repeatable content engine. Over the next eight weeks — 200+ pieces across TikTok, Instagram and LinkedIn — I would focus on systems, leverage and compounding outcomes, not heroics.",
+    "Small Giants already has the mission. The challenge now is turning it into a repeatable content engine. Over the next eight weeks, the goal is 200+ pieces across TikTok, Instagram and LinkedIn. I would focus on systems, leverage and compounding outcomes, not heroics.",
   pillars: [
     {
       n: "01",
       title: "Content pipeline",
       flow: "Idea → Research → Script → Edit → Publish → Analyse",
-      body: "One workflow, end to end. Reduce friction at every handoff, raise output, and document the process so it runs without any single person — including me.",
+      body: "One workflow, end to end. Reduce friction at every handoff, raise output, and document the process so it runs without any single person, including me.",
     },
     {
       n: "02",
       title: "AI workflows",
       flow: "Research · Ideation · Scripting · Repurposing · Analysis",
-      body: "Use AI to accelerate the heavy lifting across the pipeline. A force multiplier on the busywork — never a replacement for the editorial judgement that decides what is actually worth saying.",
+      body: "Use AI to accelerate the heavy lifting across the pipeline. A force multiplier on the busywork, never a replacement for the editorial judgement that decides what is actually worth saying.",
     },
     {
       n: "03",
@@ -503,7 +503,7 @@ export const sprint = {
       n: "04",
       title: "Growth loops",
       flow: "Audience → Newsletter → Community",
-      body: "Find the formats that win, track engagement honestly, and double down on what works — tying content performance to the things that compound: audience, newsletter and community growth.",
+      body: "Find the formats that win, track engagement honestly, and double down on what works, tying content performance to the things that compound: audience, newsletter and community growth.",
     },
   ],
   closer:
